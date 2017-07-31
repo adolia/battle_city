@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>resources/audio/battle_city_intro.mp3</file>
+    </qresource>
+</RCC>
