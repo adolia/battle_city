@@ -1,14 +1,26 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 
+#include "include/wall.h"
+
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
-
     QQmlApplicationEngine engine;
-    engine.load(QUrl(QStringLiteral("qrc:/qml/main.qml")));
-    if (engine.rootObjects().isEmpty())
-        return -1;
+    int retCode = 0;
 
-    return app.exec();
+    try {
+        qmlRegisterType<Wall>  ("BattleFieldObjects", 1, 0, "Wall");
+
+        engine.load(QUrl(QStringLiteral("qrc:/qml/main.qml")));
+        if (engine.rootObjects().isEmpty())
+            return -1;
+
+        retCode = app.exec();
+    } catch(const std::bad_alloc&) {
+        /* There is no references to external resources yet */
+        qDebug("Not enough memory!");
+    }
+
+    return retCode;
 }
