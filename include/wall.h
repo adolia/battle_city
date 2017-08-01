@@ -1,14 +1,14 @@
 #ifndef WALL_H
 #define WALL_H
 
-#include "stageobject.h"
+#include "include/stageobject.h"
 /**
  * @brief The WallType enum describes wall type
  */
 enum WallType {
-    BrickWall,
-    ArmorWall,
-    Empty
+    BRICKWALL,
+    ARMORWALL,
+    EMPTY
 };
 
 /**
@@ -20,8 +20,10 @@ class Wall : public StageObject {
     Q_PROPERTY(bool destructable READ isDestructable CONSTANT)
     Q_PROPERTY(WallType type READ getWallType CONSTANT)
 
-public:
+protected:
+    Wall(QQuickItem *parent = Q_NULLPTR);
 
+public:
     /* Virtual method to get Object method path */
     virtual QString getObjectImgPath() const;
 

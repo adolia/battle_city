@@ -1,7 +1,9 @@
-#include "wall.h"
+#include "include/wall.h"
 
-Wall::Wall()
+Wall::Wall(QQuickItem *parent) : StageObject(parent)
 {
+    _destructable(false);
+    _walltype(EMPTY);
 }
 QString Wall::getObjectImgPath() const {
     QString wall_name = "";
