@@ -1,5 +1,18 @@
 <RCC>
     <qresource prefix="/">
         <file>resources/audio/battle_city_intro.mp3</file>
+        <file>resources/audio/battle_city_game_over.mp3</file>
+        <file>resources/audio/user_moving.wav</file>
+        <file>resources/audio/shot.wav</file>
+        <file>resources/audio/explosion.wav</file>
+        <file>resources/img/brick_wall.png</file>
+        <file>resources/img/armor_wall.png</file>
+        <file>resources/img/user_tank.png</file>
+        <file>resources/img/AI_tank.gif</file>
+        <file>resources/img/shell_explosion.gif</file>
+        <file>resources/img/tank_explosion.gif</file>
+        <file>resources/img/base_flag.png</file>
+        <file>resources/img/game_over.png</file>
+
     </qresource>
 </RCC>
