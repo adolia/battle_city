@@ -4,7 +4,7 @@
 #include <QtQuick/QQuickItem>
 
 /**
- *  The StageObject class is a base class for each visual object (Item)
+ *  @brief The StageObject class is a base class for each visual object (Item)
  **/
 class StageObject : public QQuickItem
 {

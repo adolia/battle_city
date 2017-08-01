@@ -1,6 +1,6 @@
-#include "stageobject.h"
+#include "include/stageobject.h"
 
-StageObject::StageObject(QObject *parent) : QObject(parent)
+StageObject::StageObject(QQuickItem *parent) : QQuickItem(parent)
 {
 
 }
