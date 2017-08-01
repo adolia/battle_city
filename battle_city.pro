@@ -3,7 +3,11 @@ TEMPLATE = app
 QT += qml quick
 CONFIG += c++11
 
-SOURCES += src/main.cpp
+HEADERS += \
+    include/stageobject.h
+
+SOURCES += src/main.cpp \
+    src/stageobject.cpp
 
 RESOURCES += qml.qrc resources.qrc
 
