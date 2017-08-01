@@ -4,10 +4,12 @@ QT += qml quick
 CONFIG += c++11
 
 HEADERS += \
-    include/stageobject.h
+    include/stageobject.h \
+    include/wall.h
 
 SOURCES += src/main.cpp \
-    src/stageobject.cpp
+    src/stageobject.cpp \
+    src/wall.cpp
 
 RESOURCES += qml.qrc resources.qrc
 
