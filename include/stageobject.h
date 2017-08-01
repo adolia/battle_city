@@ -1,13 +1,31 @@
 #ifndef STAGEOBJECT_H
 #define STAGEOBJECT_H
 
-#include <QObject>
+#include <QtQuick/QQuickItem>
 
-class StageObject : public QObject
+/**
+ *  The StageObject class is a base class for each visual object (Item)
+ **/
+class StageObject : public QQuickItem
 {
     Q_OBJECT
+    /* Copy constructor */
+    StageObject(const StageObject &) = default;
+    StageObject & operator = (const StageObject &) { return *this; }
+
+protected:
+    /* protect cosnstructor to create Abstract class */
+    StageObject(QQuickItem *parent = Q_NULLPTR);
+
 public:
-    explicit StageObject(QObject *parent = nullptr);
+    /* Moving direction */
+    enum MovingDirection {
+        MOVING_UP,
+        MOVING_DOWN,
+        MOVING_LEFT,
+        MOVING_RIGHT,
+        MOVING_NONE
+    };
 
 signals:
 
