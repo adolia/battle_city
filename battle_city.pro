@@ -5,11 +5,13 @@ CONFIG += c++11
 
 HEADERS += \
     include/stageobject.h \
-    include/wall.h
+    include/wall.h \
+    include/battlefield.h
 
 SOURCES += src/main.cpp \
     src/stageobject.cpp \
-    src/wall.cpp
+    src/wall.cpp \
+    src/battlefield.cpp
 
 RESOURCES += qml.qrc resources.qrc
 
