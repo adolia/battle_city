@@ -17,8 +17,8 @@ enum WallType {
 
 class Wall : public StageObject {
     Q_OBJECT
-    Q_PROPERTY(bool destructable READ isDestructable CONSTANT)
-    Q_PROPERTY(WallType type READ getWallType CONSTANT)
+    Q_PROPERTY(bool destructable READ isDestructable)
+    Q_PROPERTY(WallType type READ getWallType)
 
 protected:
     Wall(QQuickItem *parent = Q_NULLPTR);
