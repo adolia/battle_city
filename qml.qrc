@@ -2,5 +2,6 @@
     <qresource prefix="/">
         <file>qml/main.qml</file>
         <file>qml/Wall.qml</file>
+        <file>qml/BattleField.qml</file>
     </qresource>
 </RCC>

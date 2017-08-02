@@ -1,8 +1,7 @@
 import QtQuick 2.8
 import QtMultimedia 5.9
-import QtQuick.Window 2.2
 
-Window {
+BattleField {
     visible: true
     width: 1024
     height: 768
