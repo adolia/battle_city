@@ -2,7 +2,7 @@
 
 Wall::Wall(QQuickItem *parent) :StageObject(parent),
     _destructable(false),
-    _wall_type(EMPTY)
+    _wall_type(BRICKWALL)
 {
 }
 QString Wall::getImgPath() const {

@@ -1,6 +1,6 @@
-#include "battlefield.h"
+#include "include/battlefield.h"
 
-BattleField::BattleField()
+BattleField::BattleField(QWindow *parent) : QQuickView(parent)
 {
 
 }
