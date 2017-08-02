@@ -1,13 +1,13 @@
 #include "include/wall.h"
 
-Wall::Wall(QQuickItem *parent) : StageObject(parent)
+Wall::Wall(QQuickItem *parent) :StageObject(parent),
+    _destructable(false),
+    _wall_type(EMPTY)
 {
-    _destructable(false);
-    _walltype(EMPTY);
 }
-QString Wall::getObjectImgPath() const {
+QString Wall::getImgPath() const {
     QString wall_name = "";
-    switch (this->_walltype) {
+    switch (this->_wall_type) {
     case BRICKWALL:
         wall_name = "brick_wall";
         break;

@@ -25,22 +25,22 @@ protected:
 
 public:
     /* Virtual method to get Object method path */
-    virtual QString getObjectImgPath() const;
+    virtual QString getImgPath() const;
 
     /* returns destructable wall property */
     bool isDestructable() const { return this->_destructable; }
 
     /* returns Wall type value */
-    WallType getWallType() const { return this->_walltype; }
+    WallType getWallType() const { return this->_wall_type; }
 
     /* Class destructor */
-    ~Wall();
+    ~Wall() {};
 
 private:
     /* Indicates if wall can be destructed by shell */
     const bool _destructable;
     /* Determine which type of wall are used */
-    const WallType _walltype;
+    const WallType _wall_type;
 
 };
 
