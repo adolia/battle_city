@@ -19,6 +19,7 @@ enum MovingDirection {
  **/
 class StageObject : public QQuickItem
 {
+    /* Declare default width & hight object values */
     Q_OBJECT
     Q_PROPERTY(QString imgPath READ getImgPath CONSTANT)
     Q_PROPERTY(int direction READ getDirection WRITE setDirection NOTIFY directionChanged)

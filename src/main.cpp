@@ -1,6 +1,6 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
-
+#include <QQuickView>
 #include "include/wall.h"
 
 int main(int argc, char *argv[])
@@ -11,11 +11,15 @@ int main(int argc, char *argv[])
 
     try {
         qmlRegisterType<Wall>  ("BattleFieldObjects", 1, 0, "Wall");
-
+        QQuickView view;
+        view.setSource(QUrl("qrc:/qml/main.qml"));
+        view.setResizeMode(QQuickView::SizeRootObjectToView);
+        view.show();
+        /*
         engine.load(QUrl(QStringLiteral("qrc:/qml/main.qml")));
         if (engine.rootObjects().isEmpty())
             return -1;
-
+        */
         retCode = app.exec();
     } catch(const std::bad_alloc&) {
         /* There is no references to external resources yet */
