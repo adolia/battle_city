@@ -7,7 +7,6 @@ Wall {
 
     Image {
         id: img
-        visible: false
         sourceSize.width: 256
         sourceSize.height: 256
         source: wall.imgPath

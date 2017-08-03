@@ -7,11 +7,14 @@ Rectangle {
 
     Wall {
         id: brick_wall
-        anchors.bottom: parent.bottom
-        anchors.left: parent.left
         width: 100
         height: 100
-        x: 50
-        y: 50
+        Image {
+            id: img
+            visible: false
+            sourceSize.width: 256
+            sourceSize.height: 256
+            source: "qrc:/resources/img/brick_wall.png"
+        }
     }
 }
