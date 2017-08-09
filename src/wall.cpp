@@ -1,6 +1,6 @@
 #include "include/wall.h"
 
-Wall::Wall(QQuickItem *parent) :StageObject(parent),
+Wall::Wall(QQuickItem *parent) : StageObject(parent),
     _destructable(false),
     _wall_type(BRICKWALL)
 {

@@ -1,7 +1,8 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QQuickView>
-#include "include/wall.h"
+#include "wall.h"
+#include "QQmlObjectListModel.h"
 
 int main(int argc, char *argv[])
 {

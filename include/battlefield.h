@@ -7,7 +7,7 @@ class BattleField : public QQuickView
 {
     Q_OBJECT
 public:
-    BattleField(QWindow *parent = Q_NULLPTR);
+    explicit BattleField(QWindow *parent = Q_NULLPTR);
 
     ~BattleField() {};
 };

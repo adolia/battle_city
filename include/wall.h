@@ -17,6 +17,7 @@ enum WallType {
 
 class Wall : public StageObject {
     Q_OBJECT
+    Q_ENUMS(WallType)
     Q_PROPERTY(bool destructable READ isDestructable)
     Q_PROPERTY(WallType type READ getWallType)
 

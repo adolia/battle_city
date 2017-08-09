@@ -21,15 +21,17 @@ class StageObject : public QQuickItem
 {
     /* Declare default width & hight object values */
     Q_OBJECT
+    Q_ENUMS(MovingDirection)
     Q_PROPERTY(QString imgPath READ getImgPath CONSTANT)
     Q_PROPERTY(int direction READ getDirection WRITE setDirection NOTIFY directionChanged)
     Q_PROPERTY(int speed READ getSpeed WRITE setSpeed NOTIFY speedChanged)
     Q_PROPERTY(bool alive READ isAlive WRITE setLiveStatus NOTIFY liveStatusChanged)
     Q_PROPERTY(bool moving READ isMoving WRITE setMoveStatus)
 
-    /* Copy constructor */
-    StageObject(const StageObject &) = default;
-    StageObject & operator = (const StageObject &) { return *this; }
+    /* Disable copy constructor and an assignment operator */
+    Q_DISABLE_COPY(StageObject)
+    // StageObject(const StageObject &) = default;
+    // StageObject & operator = (const StageObject &) { return *this; }
 
 protected:
     /* protect cosnstructor to create Abstract class */
