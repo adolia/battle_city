@@ -1,4 +1,4 @@
-#include "include/tank.h"
+#include "tank.h"
 
 Tank::Tank()
 {

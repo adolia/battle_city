@@ -1,8 +1,9 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QQuickView>
+#include <QQmlContext>
 #include "wall.h"
-#include "QQmlObjectListModel.h"
+#include "battlefield.h"
 
 int main(int argc, char *argv[])
 {
@@ -11,9 +12,10 @@ int main(int argc, char *argv[])
     int retCode = 0;
 
     try {
-        qmlRegisterType<Wall>  ("BattleFieldObjects", 1, 0, "Wall");
-        QQuickView view;
-        view.setSource(QUrl("qrc:/qml/main.qml"));
+        qmlRegisterType<Wall> ("BattleFieldObjects", 1, 0, "Wall");
+        //QQuickView view;
+        Wall wall;
+        BattleField view(QUrl("qrc:/qml/main.qml"));
         view.setResizeMode(QQuickView::SizeRootObjectToView);
         view.show();
         /*

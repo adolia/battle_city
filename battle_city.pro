@@ -9,7 +9,8 @@ HEADERS += \
     include/battlefield.h \
     include/tank.h \
     include/aitank.h \
-    include/shell.h
+    include/shell.h \
+    include/stageobjectsfactory.h
 
 SOURCES += src/main.cpp \
     src/stageobject.cpp \
@@ -17,7 +18,8 @@ SOURCES += src/main.cpp \
     src/battlefield.cpp \
     src/tank.cpp \
     src/aitank.cpp \
-    src/shell.cpp
+    src/shell.cpp \
+    src/stageobjectsfactory.cpp
 
 INCLUDEPATH += $$PWD/include
 RESOURCES += qml.qrc resources.qrc
@@ -38,9 +40,9 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # In order to do so, uncomment the following line.
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
-DEPENDPATH += /home/alex/Downloads/qt-qml-models
-INCLUDEPATH += /home/alex/Downloads/qt-qml-models
-LIBS += -L$$PWD/lib -lQtQmlModels
+#DEPENDPATH += /home/alex/Downloads/qt-qml-models
+#INCLUDEPATH += /home/alex/Downloads/qt-qml-models
+#LIBS += -L$$PWD/lib -lQtQmlModels
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin

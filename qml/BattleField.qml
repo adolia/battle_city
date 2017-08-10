@@ -12,8 +12,8 @@ Rectangle {
         Image {
             id: img
             visible: false
-            sourceSize.width: 256
-            sourceSize.height: 256
+            sourceSize.width: 100
+            sourceSize.height: 100
             source: "qrc:/resources/img/brick_wall.png"
         }
     }

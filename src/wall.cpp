@@ -1,10 +1,15 @@
-#include "include/wall.h"
+#include "wall.h"
 
-Wall::Wall(QQuickItem *parent) : StageObject(parent),
-    _destructable(false),
-    _wall_type(BRICKWALL)
+Wall::Wall(QQuickItem *parent, const bool destructable, WallType type) :
+    StageObject(parent),
+    _destructable(destructable),
+    _wall_type(type)
 {
 }
+/**
+ * @brief Wall::getImgPath get texture path
+ * @return
+ */
 QString Wall::getImgPath() const {
     QString wall_name = "";
     switch (this->_wall_type) {

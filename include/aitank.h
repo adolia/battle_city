@@ -1,7 +1,7 @@
 #ifndef AITANK_H
 #define AITANK_H
 
-#include "include/tank.h"
+#include "tank.h"
 
 class AITank : public Tank {
 public:

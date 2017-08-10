@@ -4,16 +4,26 @@
 #include <QtQuick/QQuickItem>
 
 /**
+ * @brief The ObjectType  battle field objects
+ */
+enum ObjectType {
+    TYPE_USERBASE,
+    TYPE_PLAYERTANK,
+    TYPE_AITANK,
+    TYPE_SHELL,
+    TYPE_WALL,
+    TYPE_NONE
+};
+/**
  * @brief Moving direction related to rotation property in degrees
  **/
 enum MovingDirection {
-    MOVING_UP,
-    MOVING_RIGHT = 90,
-    MOVING_DOWN  = 180,
-    MOVING_LEFT  = 270,
-    MOVING_NONE  = 360
+    UP,
+    RIGHT = 90,
+    DOWN  = 180,
+    LEFT  = 270,
+    NONE  = 360
 };
-
 /**
  *  @brief The StageObject class is a base class for each visual object (Item)
  **/
@@ -23,7 +33,7 @@ class StageObject : public QQuickItem
     Q_OBJECT
     Q_ENUMS(MovingDirection)
     Q_PROPERTY(QString imgPath READ getImgPath CONSTANT)
-    Q_PROPERTY(int direction READ getDirection WRITE setDirection NOTIFY directionChanged)
+    Q_PROPERTY(MovingDirection direction READ getDirection WRITE setDirection NOTIFY directionChanged)
     Q_PROPERTY(int speed READ getSpeed WRITE setSpeed NOTIFY speedChanged)
     Q_PROPERTY(bool alive READ isAlive WRITE setLiveStatus NOTIFY liveStatusChanged)
     Q_PROPERTY(bool moving READ isMoving WRITE setMoveStatus)
@@ -38,13 +48,14 @@ protected:
     StageObject(QQuickItem *parent = Q_NULLPTR);
 
 public:
+
     /* Path to object's image  getter & setter */
     virtual QString getImgPath() const{ return this->_img_path; }
     void setImgPath(const QString& path) { this->_img_path = path; }
 
     /* Object moving direction getter & setter */
-    int getDirection() const { return this->direction; }
-    void setDirection(int new_direction);
+    MovingDirection getDirection() const { return this->direction; }
+    void setDirection(MovingDirection new_direction);
 
     /* Object speed getter $ setter */
     int getSpeed() const { return this->speed; }
@@ -67,13 +78,13 @@ public:
 
 signals:
     /* Signals are sent when changes should be propagated to QML */
-    void directionChanged(int);
+    void directionChanged(MovingDirection);
     void speedChanged(int);
     void liveStatusChanged(const bool);
 
 protected:
     /* Object moving direction in degrees */
-    int direction;
+    MovingDirection direction;
     int speed;
 
 private:

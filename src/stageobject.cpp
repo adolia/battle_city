@@ -1,4 +1,4 @@
-#include "include/stageobject.h"
+#include "stageobject.h"
 
 StageObject::StageObject(QQuickItem *parent) : QQuickItem(parent),
     _alive(true),
@@ -11,7 +11,7 @@ StageObject::StageObject(QQuickItem *parent) : QQuickItem(parent),
  * @param new_direction
  * @return void
  */
-void StageObject::setDirection(int new_direction){
+void StageObject::setDirection(MovingDirection new_direction){
     if(this->direction != new_direction){
         this->direction = new_direction;
         emit directionChanged(new_direction);

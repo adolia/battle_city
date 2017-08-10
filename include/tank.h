@@ -1,7 +1,7 @@
 #ifndef TANK_H
 #define TANK_H
 
-#include "include/stageobject.h"
+#include "stageobject.h"
 
 class Tank : public StageObject {
     Q_OBJECT

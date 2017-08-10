@@ -1,4 +1,4 @@
-#include "include/aitank.h"
+#include "aitank.h"
 
 AITank::AITank()
 {
