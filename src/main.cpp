@@ -14,8 +14,8 @@ int main(int argc, char *argv[])
     try {
         qmlRegisterType<Wall> ("BattleFieldObjects", 1, 0, "Wall");
         //QQuickView view;
-        Wall wall;
         BattleField view(QUrl("qrc:/qml/main.qml"));
+        view.rootContext()->setContextProperty("battle", QVariant::fromValue(view.getListModel()));
         view.setResizeMode(QQuickView::SizeRootObjectToView);
         view.show();
         /*

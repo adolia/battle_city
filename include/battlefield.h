@@ -2,8 +2,6 @@
 #define BATTLEFIELD_H
 
 #include <QtQuick/QQuickView>
-#include <QQmlContext>
-#include <QVariant>
 
 #include "stageobjectsfactory.h"
 
@@ -22,7 +20,7 @@ public:
     explicit BattleField(QQmlEngine *engine, QWindow *parent);
     explicit BattleField(const QUrl &source, QWindow *parent = Q_NULLPTR);
 
-    void setRootContext();
+    StageListModel getListModel() { return objList; }
 
     ~BattleField();
 private:

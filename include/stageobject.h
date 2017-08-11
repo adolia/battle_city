@@ -19,16 +19,7 @@ enum ObjectType {
     A_WALL,
     NONE_TYPE
 };
-/**
- * @brief Moving direction related to rotation property in degrees
- **/
-enum MovingDirection {
-    UP,
-    RIGHT = 90,
-    DOWN  = 180,
-    LEFT  = 270,
-    NONE  = 360
-};
+
 /**
  *  @brief The StageObject class is a base class for each visual object (Item)
  **/
@@ -53,7 +44,16 @@ protected:
     StageObject(QQuickItem *parent = Q_NULLPTR);
 
 public:
-
+    /**
+     * @brief Moving direction related to rotation property in degrees
+     **/
+    enum MovingDirection {
+        UP,
+        RIGHT = 90,
+        DOWN  = 180,
+        LEFT  = 270,
+        NONE  = 360
+    };
     /* Path to object's image  getter & setter */
     virtual QString getImgPath() const{ return this->_img_path; }
     void setImgPath(const QString& path) { this->_img_path = path; }

@@ -2,6 +2,8 @@
 #include "wall.h"
 
 StageListModel * StageObjectsFactory::stageListModel = Q_NULLPTR;
+QQmlEngine * StageObjectsFactory::engine = Q_NULLPTR;
+QQmlContext * StageObjectsFactory::context = Q_NULLPTR;
 
 StageObjectsFactory::StageObjectsFactory()
 {
@@ -17,13 +19,13 @@ StageObjectsFactory::StageObjectsFactory()
  * @return
  */
 StageObject* StageObjectsFactory::create(ObjectType type,
-                                         MovingDirection direction,
+                                         StageObject::MovingDirection direction,
                                          const QRectF &params,
                                          QQuickItem *sceneContext)
 {
     QQuickItem *factoryObject = Q_NULLPTR;
-    if (stageListModel)
-    {
+    //if (stageListModel)
+    //{
         switch (type) {
         case PLAYERTANK:
             break;
@@ -34,17 +36,19 @@ StageObject* StageObjectsFactory::create(ObjectType type,
 
             break;
         case B_WALL:
-            factoryObject = new Wall(true, BRICKWALL);
+            factoryObject = new Wall(Wall::BRICKWALL);
+            qDebug() << "brickwall";
             break;
         case A_WALL:
-            factoryObject = new Wall(false, ARMORWALL);
+            factoryObject = new Wall(Wall::ARMORWALL);
+            //this->context->setContextProperty("wall", factoryObject);
             break;
         default:
             break;
         }
         stageListModel->append((StageObject*)factoryObject);
 
-    }
+    //}
 
     return (StageObject*)factoryObject;
 }

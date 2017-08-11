@@ -1,10 +1,14 @@
 #include "wall.h"
 
-Wall::Wall(const bool destructable, WallType type, QQuickItem *parent) :
-    StageObject(parent),
-    _destructable(destructable),
-    _wall_type(type)
+Wall::Wall(QQuickItem *parent) :
+    StageObject(parent)
 {
+}
+
+Wall::Wall(WallType type, QQuickItem *parent) :
+    StageObject(parent)
+{
+    this->setWallType(type);
 }
 /**
  * @brief Wall::getImgPath get texture path
@@ -24,4 +28,19 @@ QString Wall::getImgPath() const {
         break;
     }
     return "qrc:/resources/img/" + wall_name + ".png";
+}
+/**
+ * @brief Wall::setWallType
+ * @param type
+ */
+void Wall::setWallType(WallType type) {
+    this->_wall_type = type;
+    switch (this->_wall_type) {
+    case BRICKWALL:
+        this->_destructable = true;
+        break;
+    default:
+        this->_destructable = false;
+        break;
+    }
 }
