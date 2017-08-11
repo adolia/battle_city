@@ -5,6 +5,13 @@ BattleField {
     visible: true
     width: 1024
     height: 768
+    objectName: "scene"
+    Item {
+        Repeater {
+            model: battleModel
+            Wall { }
+        }
+    }
 
     Audio {
         id: introSound

@@ -1,11 +1,11 @@
 #include "battlefield.h"
-#include "stageobject.h"
+
 BattleField::BattleField(QWindow *parent) : QQuickView(parent)
 {
 }
 
 BattleField::BattleField(QQmlEngine *engine, QWindow *parent) : QQuickView(engine, parent),
-    objectsFactory(new StageObjectsFactory())
+    objFactory(new StageObjectsFactory())
 {
     initBattleField();
 }
@@ -15,12 +15,16 @@ BattleField::BattleField(const QUrl &source, QWindow *parent) : QQuickView(sourc
 }
 BattleField::~BattleField()
 {
-    delete objectsFactory;
+    delete objFactory;
 }
 
 inline void BattleField::initBattleField()
 {
-    this->objectsFactory->setStageObjectsList(&objList);
+    this->objFactory->setStageObjectsList(&objList);
     QRectF geometry = {};
-    this->objectsFactory->create(ObjectType::TYPE_WALL, MovingDirection::UP, geometry, Q_NULLPTR);
+    this->objFactory->create(ObjectType::B_WALL, MovingDirection::UP, geometry, Q_NULLPTR);
+    this->objFactory->create(ObjectType::A_WALL, MovingDirection::UP, geometry, Q_NULLPTR);
+
+    this->rootContext()->setContextProperty("battleModel", QVariant::fromValue(objList));
 }
+

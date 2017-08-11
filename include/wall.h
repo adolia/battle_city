@@ -28,7 +28,9 @@ protected:
 public:
 
 
-    explicit Wall(QQuickItem *parent = Q_NULLPTR, const bool destructable = false, WallType = EMPTY);
+    explicit Wall(const bool destructable = false,
+                  WallType = EMPTY,
+                  QQuickItem *parent = Q_NULLPTR);
 
     /* Virtual method to get Object method path */
     virtual QString getImgPath() const;

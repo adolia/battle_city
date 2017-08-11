@@ -1,6 +1,6 @@
 #include "wall.h"
 
-Wall::Wall(QQuickItem *parent, const bool destructable, WallType type) :
+Wall::Wall(const bool destructable, WallType type, QQuickItem *parent) :
     StageObject(parent),
     _destructable(destructable),
     _wall_type(type)

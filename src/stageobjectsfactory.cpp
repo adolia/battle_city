@@ -1,11 +1,12 @@
 #include "stageobjectsfactory.h"
 #include "wall.h"
 
-QList<StageObject*> *StageObjectsFactory::StageObjectsList = Q_NULLPTR;
+StageListModel * StageObjectsFactory::stageListModel = Q_NULLPTR;
 
 StageObjectsFactory::StageObjectsFactory()
 {
 }
+
 
 /**
  * @brief StageObjectsFactory::create metod to create Stage objects instances
@@ -21,21 +22,30 @@ StageObject* StageObjectsFactory::create(ObjectType type,
                                          QQuickItem *sceneContext)
 {
     QQuickItem *factoryObject = Q_NULLPTR;
-    switch (type) {
-    case TYPE_PLAYERTANK:
-        break;
-    case TYPE_AITANK:
+    if (stageListModel)
+    {
+        switch (type) {
+        case PLAYERTANK:
+            break;
+        case AITANK:
 
-        break;
-    case TYPE_SHELL:
+            break;
+        case SHELL:
 
-        break;
-    case TYPE_WALL:
-        factoryObject = new Wall(parent, true, BRICKWALL);
-        break;
-    default:
-        break;
+            break;
+        case B_WALL:
+            factoryObject = new Wall(true, BRICKWALL);
+            break;
+        case A_WALL:
+            factoryObject = new Wall(false, ARMORWALL);
+            break;
+        default:
+            break;
+        }
+        stageListModel->append((StageObject*)factoryObject);
+
     }
+
     return (StageObject*)factoryObject;
 }
 

@@ -3,16 +3,21 @@
 
 #include <QtQuick/QQuickItem>
 
+class StageObject;
+
+typedef QList<StageObject*> StageListModel;
+
 /**
  * @brief The ObjectType  battle field objects
  */
 enum ObjectType {
-    TYPE_USERBASE,
-    TYPE_PLAYERTANK,
-    TYPE_AITANK,
-    TYPE_SHELL,
-    TYPE_WALL,
-    TYPE_NONE
+    USERBASE,
+    PLAYERTANK,
+    AITANK,
+    SHELL,
+    B_WALL,
+    A_WALL,
+    NONE_TYPE
 };
 /**
  * @brief Moving direction related to rotation property in degrees
