@@ -1,12 +1,13 @@
 <RCC>
     <qresource prefix="/">
         <file>qml/main.qml</file>
-        <file>qml/Wall.qml</file>
+        <file>qml/BrickWall.qml</file>
         <file>qml/PlayerTank.qml</file>
         <file>qml/AITank.qml</file>
         <file>qml/Shell.qml</file>
         <file>qml/PlayerBase.qml</file>
         <file>qml/BattleField.qml</file>
         <file>qml/GameOverScreen.qml</file>
+        <file>qml/ArmorWall.qml</file>
     </qresource>
 </RCC>
