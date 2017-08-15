@@ -1,6 +1,7 @@
 #ifndef AITANK_H
 #define AITANK_H
 
+#include <QtQuick/QQuickItem>
 #include "tank.h"
 
 class AITank : public Tank {
