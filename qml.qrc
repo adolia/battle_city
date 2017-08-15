@@ -1,0 +1,17 @@
+<RCC>
+    <qresource prefix="/">
+        <file>qml/main.qml</file>
+        <file>qml/BrickWall.qml</file>
+        <file>qml/PlayerTank.qml</file>
+        <file>qml/EnemyTank.qml</file>
+        <file>qml/Shell.qml</file>
+        <file>qml/PlayerBase.qml</file>
+        <file>qml/BattleField.qml</file>
+        <file>qml/GameOverScreen.qml</file>
+        <file>qml/ArmorWall.qml</file>
+        <file>qml/TankExplosion.qml</file>
+        <file>qml/ShellExplosion.qml</file>
+        <file>qml/ControlPanel.qml</file>
+        <file>qml/EnemyFlag.qml</file>
+    </qresource>
+</RCC>
