@@ -244,20 +244,14 @@ Rectangle {
         id: screen
         objectName: "win_screen"
         visible: false
-        width: 300
-        height: 300
+        width: parent.width
+        height: parent.height
         anchors.verticalCenter: parent.verticalCenter
-
-        property alias text: txtItem.text
-
-        Text {
-            id: txtItem
-            smooth: true
+        Image {
+            id: img
             visible: true
-            anchors.centerIn: parent
-            text: "Win"
-            color: "#ecc58a"
-            font.pixelSize: 48
+            anchors.fill: parent
+            source: "qrc:/resources/img/win_screen.png"
         }
     }
 
