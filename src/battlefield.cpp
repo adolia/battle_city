@@ -5,13 +5,12 @@
 #include "aitank.h"
 #include "defs.h"
 
-extern QPointF player_spawn[];
-
 QPointF BattleField::ai_spawn_points[] =
 {
    /* Initial ai tanks spawn points*/
-    { 15,  20 }, { 720,  20 },
-    { 15, 620 }, { 720, 620 },
+    { 20,  20 },
+    { 720, 20 },
+    { 20, 620 }
 };
 
 BattleField::BattleField(QWindow *parent) : QQuickView(parent),
@@ -48,19 +47,6 @@ BattleField::~BattleField()
 inline void BattleField::initPlayer()
 {
     // The player item can be set only once
-    /*QRectF params = {
-        player_spawn[0].x(),
-        player_spawn[0].y(),
-        WIDTH,
-        HEIGHT
-    };
-
-    Tank *player = dynamic_cast<Tank*>(this->objFactory->create(ObjectType::PLAYERTANK,
-                                                                StageObject::MovingDirection::UP,
-                                                                PLAYER_TANK_SPEED,
-                                                                params,
-                                                                rootObject()));
-                                                                */
     Tank *player = rootObject()->findChild<Tank*>("player_tank");
     if (player != Q_NULLPTR)
     {
@@ -210,7 +196,6 @@ void BattleField::setWinEvent()
 
     connect(this, &BattleField::aliveEnemiesChanged, screen, [=] (int enemiesLeft) {
         if (enemiesLeft == 0 && this->getEnemiesToSpawn() <= 0) {
-            screen->setProperty("text", "Win");
             screen->setProperty("visible", true);
         }
     });

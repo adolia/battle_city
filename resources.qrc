@@ -14,6 +14,7 @@
         <file>resources/img/tank_explosion.gif</file>
         <file>resources/img/base_flag.png</file>
         <file>resources/img/game_over.png</file>
+        <file>resources/img/win_screen.png</file>
         <file>qml/PlayerTank.qml</file>
         <file>qml/EnemyTank.qml</file>
         <file>qml/Shell.qml</file>

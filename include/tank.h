@@ -3,13 +3,6 @@
 
 #include "stageobjectsfactory.h"
 
-static QPointF player_spawn[] =
-{
-    /* Base player spawn points  */
-    { 380, 520 }, { 380,  420 }
-};
-
-
 class Tank : public StageObject {
     Q_OBJECT
 
@@ -19,7 +12,6 @@ class Tank : public StageObject {
 public:
 
     explicit Tank(QQuickItem *parent = Q_NULLPTR);
-    //Tank(QQuickItemPrivate &dd, QQuickItem *parent = Q_NULLPTR);
 
     ~Tank();
 

@@ -28,7 +28,7 @@ AnimatedImage
     Timer
     {
         id: explosionTimer
-        interval: 1000
+        interval: 800
         running: false
         repeat: false
         onTriggered:

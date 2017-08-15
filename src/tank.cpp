@@ -1,4 +1,11 @@
+#include <QTimer>
 #include "tank.h"
+
+static QPointF player_spawn[] =
+{
+    /* Base player spawn points  */
+    { 380, 520 }, { 380,  420 }
+};
 
 Tank::Tank(QQuickItem *parent): StageObject(parent)
 {
@@ -31,9 +38,9 @@ void Tank::destroy()
 void Tank::respawnPlayer(int lives)
 {
     if (lives > 0) {
-       this->setMoveStatus(false);
-       this->setDirection(MovingDirection::UP);
-       this->setPosition (player_spawn[0]);
+        this->setMoveStatus(false);
+        this->setDirection(MovingDirection::UP);
+        this->setPosition(player_spawn[0]);
     }
 }
 
@@ -43,8 +50,9 @@ void Tank::respawnPlayer(int lives)
  */
 void Tank::setPosX(qreal x)
 {
-    if (!this->checkCollisions(x, this->y()) && x >= 0 && x < parentItem()->width() - this->width())
-        QQuickItem:setX(x);
+    if (!this->checkCollisions(x, this->y()) && x >= 0 && x < (parentItem()->width() - this->width())){
+        QQuickItem::setX(x);
+     }
 }
 /**
  * @brief Tank::setPosY
@@ -52,8 +60,9 @@ void Tank::setPosX(qreal x)
  */
 void Tank::setPosY(qreal y)
 {
-    if (!this->checkCollisions(this->x(), y) && y >= 0 && y < parentItem()->height() - this->height())
-        QQuickItem:setY(y);
+    if(!this->checkCollisions(this->x(), y) && y >= 0 && y < (parentItem()->height() - this->height())){
+        QQuickItem::setY(y);
+    }
 }
 
 /**
