@@ -3,8 +3,8 @@ import QtMultimedia 5.9
 
 BattleField {
     visible: true
-    width: 1024
-    height: 768
+    width: 900
+    height: 700
 
     Audio {
         id: introSound
