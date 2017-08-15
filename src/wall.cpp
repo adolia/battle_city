@@ -10,6 +10,10 @@ Wall::Wall(WallType type, QQuickItem *parent) :
 {
     this->setWallType(type);
 }
+Wall::~Wall()
+{
+
+}
 /**
  * @brief Wall::getImgPath get texture path
  * @return
@@ -33,7 +37,8 @@ QString Wall::getImgPath() const {
  * @brief Wall::setWallType
  * @param type
  */
-void Wall::setWallType(WallType type) {
+void Wall::setWallType(WallType type)
+{
     this->_wall_type = type;
     switch (this->_wall_type) {
     case BRICKWALL:
@@ -43,4 +48,9 @@ void Wall::setWallType(WallType type) {
         this->_destructable = false;
         break;
     }
+}
+
+void Wall::destroy()
+{
+
 }

@@ -2,33 +2,29 @@
 #define STAGEOBJECTSFACTORY_H
 
 #include <QQmlContext>
-#include <QVariant>
 #include "stageobject.h"
 
 class StageObjectsFactory
 {
-    static StageListModel *stageListModel;
-    static QQmlEngine *engine;
-    static QQmlContext *context;
     /* Disable copy constructor and an assignment operator */
     Q_DISABLE_COPY(StageObjectsFactory)
 
+    static QQmlEngine *engine;
+    static QQmlContext *context;
+    static StageListModel *stageListModel;
 
 public:
     StageObjectsFactory();
-    void setStageObjectsList(StageListModel *list) {
+    static void initFactory(StageListModel *list, QQmlEngine *engine, QQmlContext *context) {
         StageObjectsFactory::stageListModel = list;
-    }
-    void setEngine(QQmlEngine *engine) {
         StageObjectsFactory::engine = engine;
-    }
-    void setContext(QQmlContext *context) {
         StageObjectsFactory::context = context;
     }
 
 public:
     StageObject * create(ObjectType type,
                          StageObject::MovingDirection direction,
+                         int speed,
                          const QRectF &params,
                          QQuickItem *sceneContext);
 };

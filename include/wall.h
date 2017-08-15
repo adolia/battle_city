@@ -41,7 +41,10 @@ public:
     void setWallType(WallType type);
 
     /* Class destructor */
-    ~Wall() {};
+    ~Wall();
+
+    // Destroy wall object
+    virtual void destroy();
 
 private:
     /* Indicates if wall can be destructed by shell */

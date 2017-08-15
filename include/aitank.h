@@ -5,7 +5,19 @@
 
 class AITank : public Tank {
 public:
-    AITank();
+    AITank(QQuickItem *parent = Q_NULLPTR);
+
+public:
+    virtual void setPosX(qreal);
+    virtual void setPosY(qreal);
+
+protected:
+    void timerEvent(QTimerEvent *);
+
+private:
+    void initAI();
+    // Provides the AI rotation
+    void control();
 };
 
 #endif // AITANK_H

@@ -10,7 +10,8 @@ HEADERS += \
     include/tank.h \
     include/aitank.h \
     include/shell.h \
-    include/stageobjectsfactory.h
+    include/stageobjectsfactory.h \
+    include/defs.h
 
 SOURCES += src/main.cpp \
     src/stageobject.cpp \

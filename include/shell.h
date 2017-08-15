@@ -5,8 +5,21 @@
 
 class Shell : public StageObject
 {
+    Q_OBJECT
+
 public:
-    Shell();
+    explicit Shell(QQuickItem *parent = Q_NULLPTR);
+
+    virtual void destroy();
+    virtual void setPosX(qreal);
+    virtual void setPosY(qreal);
+
+signals:
+    void explosion(QQuickItem *);
+
+private slots:
+    void onExplosion(QQuickItem *);
+
 };
 
 #endif // SHELL_H

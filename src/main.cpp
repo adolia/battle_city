@@ -3,6 +3,9 @@
 #include <QQuickView>
 #include <QQmlContext>
 #include "wall.h"
+#include "shell.h"
+#include "tank.h"
+#include "aitank.h"
 #include "battlefield.h"
 
 int main(int argc, char *argv[])
@@ -12,17 +15,17 @@ int main(int argc, char *argv[])
     int retCode = 0;
 
     try {
-        qmlRegisterType<Wall> ("BattleFieldObjects", 1, 0, "Wall");
+        // register type to use in QML
+        qmlRegisterType<Shell> ("BattleObjects", 1, 0, "Shell");
+        qmlRegisterType<Wall> ("BattleObjects", 1, 0, "Wall");
+        qmlRegisterType<Tank> ("BattleObjects", 1, 0, "Tank");
+        qmlRegisterType<AITank> ("BattleObjects", 1, 0, "AITank");
+
         //QQuickView view;
+        //create custom view
         BattleField view(QUrl("qrc:/qml/main.qml"));
-        view.rootContext()->setContextProperty("battle", QVariant::fromValue(view.getListModel()));
         view.setResizeMode(QQuickView::SizeRootObjectToView);
         view.show();
-        /*
-        engine.load(QUrl(QStringLiteral("qrc:/qml/main.qml")));
-        if (engine.rootObjects().isEmpty())
-            return -1;
-        */
         retCode = app.exec();
     } catch(const std::bad_alloc&) {
         /* There is no references to external resources yet */

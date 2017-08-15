@@ -2,6 +2,7 @@
 #define STAGEOBJECT_H
 
 #include <QtQuick/QQuickItem>
+#include "defs.h"
 
 class StageObject;
 
@@ -10,15 +11,16 @@ typedef QList<StageObject*> StageListModel;
 /**
  * @brief The ObjectType  battle field objects
  */
-enum ObjectType {
-    USERBASE,
+enum ObjectType{
     PLAYERTANK,
     AITANK,
     SHELL,
     B_WALL,
     A_WALL,
+    USERBASE,
     NONE_TYPE
 };
+
 
 /**
  *  @brief The StageObject class is a base class for each visual object (Item)
@@ -27,12 +29,14 @@ class StageObject : public QQuickItem
 {
     /* Declare default width & hight object values */
     Q_OBJECT
+
     Q_ENUMS(MovingDirection)
     Q_PROPERTY(QString imgPath READ getImgPath CONSTANT)
     Q_PROPERTY(MovingDirection direction READ getDirection WRITE setDirection NOTIFY directionChanged)
     Q_PROPERTY(int speed READ getSpeed WRITE setSpeed NOTIFY speedChanged)
     Q_PROPERTY(bool alive READ isAlive WRITE setLiveStatus NOTIFY liveStatusChanged)
-    Q_PROPERTY(bool moving READ isMoving WRITE setMoveStatus)
+    Q_PROPERTY(bool moving READ isMoving WRITE setMoveStatus )
+    Q_PROPERTY(ObjectType objectType READ getObjectType WRITE setObjectType)
 
     /* Disable copy constructor and an assignment operator */
     Q_DISABLE_COPY(StageObject)
@@ -47,7 +51,7 @@ public:
     /**
      * @brief Moving direction related to rotation property in degrees
      **/
-    enum MovingDirection {
+    enum MovingDirection{
         UP,
         RIGHT = 90,
         DOWN  = 180,
@@ -57,6 +61,10 @@ public:
     /* Path to object's image  getter & setter */
     virtual QString getImgPath() const{ return this->_img_path; }
     void setImgPath(const QString& path) { this->_img_path = path; }
+
+    /* Object type getter $ setter */
+    ObjectType getObjectType() const { return this->objectType; }
+    void setObjectType(ObjectType type) { this->objectType = type; }
 
     /* Object moving direction getter & setter */
     MovingDirection getDirection() const { return this->direction; }
@@ -73,12 +81,19 @@ public:
     /* Object moving status getter & setter */
     bool isMoving() const { return this->_moving.load(); }
     void setMoveStatus(bool move_status) { this->_moving = move_status; }
+    void move();
+
+    // Provides Items collision detection
+    virtual QQuickItem *checkCollisions(qreal newX, qreal newY);
 
     /* Setters for x & y position
      * Note: Need to call basic QQuickItem setX and setY inside
      */
     virtual void setPosX(qreal);
     virtual void setPosY(qreal);
+
+    // Destroy an Item, should be implemented
+    virtual void destroy() = 0;
 
 
 signals:
@@ -88,6 +103,7 @@ signals:
     void liveStatusChanged(const bool);
 
 protected:
+    ObjectType objectType;
     /* Object moving direction in degrees */
     MovingDirection direction;
     int speed;
